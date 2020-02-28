@@ -1,0 +1,9 @@
+<form method="POST" action="" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    {{#catalog}} <img src="/catalog/{{id}}/image" class="img-fluid" width="150" height="150" alt="">{{/catalog}}
+    <img src="/catalog/19/image" width="450" height="150" alt="">
+</form>

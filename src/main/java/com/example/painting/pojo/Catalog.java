@@ -18,6 +18,8 @@ public class Catalog implements Serializable {
     private String itName;
     @Lob
     private byte[] productImage;
+
+
     public Catalog(){}
 
     public Catalog ( String itName ){
