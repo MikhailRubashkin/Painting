@@ -40,6 +40,11 @@
         <div class="dropdown-menu">
             <a class="dropdown-item" href="/main">Кузовной ремонт</a>
             <a class="dropdown-item " href="/">Покраска автомобиля</a>
+            <a class="dropdown-item " href="/">Удаление ржавчины</a>
+            <a class="dropdown-item " href="/">Полировка кузова</a>
+            <a class="dropdown-item " href="/">Полировка фар</a>
+            <a class="dropdown-item " href="/">Ремонт бампера</a>
+            <a class="dropdown-item " href="/">Покраска дисков</a>
         </div>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -59,12 +64,14 @@
             </li>
         </ul>
     </div>
-    <form class="form-inline" method="post" action="/">
-        <input class="form-control " type="text" placeholder="Вход" aria-label="Search" name="filter"/>
-    </form>
-    <form action="/logout" method="post">
 
-        <button class="btn btn-outline-success d-block ml-auto" type="submit">Привет{{#user}} {{user}} {{/user}}! Вход</button>
+    <form  action="/login" method="post" class="container">
+        <label for="email"><b>UserName</b></label>
+        <input class="form-control " type="text" placeholder="Enter User Name" name="username" required/>
+        <label for="psw"><b>Password</b></label>
+        <input class="form-control " type="text" placeholder="Enter Password" name="password" required/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button class="btn btn-outline-success d-block ml-auto" type="submit">{{#user}} {{user}} {{/user}}Вход</button>
     </form>
 </nav>
 
@@ -82,7 +89,7 @@
                     <a class="nav-link active" href="#">Активные кнопки</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/main">Табличный вид</a>
+                    <a class="nav-link" href="/registration">Табличный вид</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Не активно</a>

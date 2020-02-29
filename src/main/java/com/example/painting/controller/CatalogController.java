@@ -5,6 +5,7 @@ import com.example.painting.pojo.Catalog;
 import com.example.painting.repository.CatalogRepo;
 import com.example.painting.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,7 +25,9 @@ public class CatalogController {
     CatalogRepo catalogRepo;
 
     @GetMapping
-    public ModelAndView showCatalogView() {
+    public ModelAndView showCatalogView(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
         ModelAndView view = new ModelAndView();
         view.setViewName("catalog");
         return view;
@@ -32,7 +35,9 @@ public class CatalogController {
 
     @GetMapping("/catalog/{id}/image")
     public @ResponseBody
-    byte [] catalogImage( @PathVariable Long id) {
+    byte [] catalogImage( @PathVariable Long id, Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
         return catalogService.findCatalog (id).getProductImage ();
     }
 
@@ -40,6 +45,8 @@ public class CatalogController {
 
     @GetMapping("/mainCatalog")
     public ModelAndView showCatalogViewMainCatalog(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
         ModelAndView view = new ModelAndView();
         List<Catalog> items =  catalogRepo.findAll ();
         model.addAttribute("result", items);
@@ -47,10 +54,12 @@ public class CatalogController {
         return view;
     }
 
-    @GetMapping("/main")
-    public ModelAndView showCatalogViewMain() {
+    @GetMapping("/login")
+    public ModelAndView showCatalogViewMain(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
         ModelAndView view = new ModelAndView();
-        view.setViewName("main");
+        view.setViewName("login");
         return view;
     }
 
@@ -60,6 +69,8 @@ public class CatalogController {
             @ModelAttribute Catalog item,
             @RequestParam("file") MultipartFile file,
             BindingResult result, Model model ) throws IOException{
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
         List<Catalog> items =  catalogRepo.findAll ();
         model.addAttribute("result", items);
         item.setItName ("??");
