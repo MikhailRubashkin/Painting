@@ -66,16 +66,17 @@ public class CatalogController {
 
     @PostMapping
     public String submitCatalogForm(
+            @RequestParam String itName,
             @ModelAttribute Catalog item,
             @RequestParam("file") MultipartFile file,
-            BindingResult result, Model model ) throws IOException{
+             Model model ) throws IOException{
         String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
         model.addAttribute ("user", user);
         List<Catalog> items =  catalogRepo.findAll ();
         model.addAttribute("result", items);
-        item.setItName ("??");
+        item.setItName (itName);
         item.setProductImage(file.getBytes());
         catalogRepo.save(item);
-        return "mainCatalog";
+        return "catalog";
     }
 }

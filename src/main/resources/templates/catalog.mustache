@@ -2,15 +2,29 @@
 <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
 <button class="btn btn-outline-success d-block ml-auto" type="submit">Привет{{#user}} {{user}} {{/user}}! Выход</button>
 </form>
-<a class="nav-link" href="/main">Главная страница</a>
+<form class="form-inline">
+    <a class="nav-link" href="/registration">Добавить нового пользователя</a>
+</form>
 
 <form method="POST" action="" enctype="multipart/form-data">
     <div class="form-group">
+        <input class="form-control text-center" type="text" name="itName" value="Вставить описание "/>
         <label for="exampleFormControlFile1">Добавить изображение</label>
         <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
     </div>
     <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     <button type="submit" class="btn btn-primary">Добавить</button>
-    {{#catalog}} <img src="/catalog/{{id}}/image" class="img-fluid" width="150" height="150" alt="">{{/catalog}}
-    <img src="/catalog/106/image" width="450" height="450" alt="">
 </form>
+
+<div class="card-deck mx-auto mb-3" style="max-width: 300px;">
+    <!-- Изображение -->
+{{#catalog}}
+        <img class="card-img-top" src="/catalog/{{id}}/image" width="350" alt="...">
+        <!-- Текстовый контент -->
+        <div class="card-body">
+            <p class="card-text">{{itName}}</p>
+        </div>
+    </div><!-- Конец карточки -->
+
+{{/catalog}}
+
