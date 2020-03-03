@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/painting-0.0.1-SNAPSHOT.war -Dserver.port=$PORT
+web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar target/painting-0.0.1-SNAPSHOT.war -Dserver.port=$PORT
