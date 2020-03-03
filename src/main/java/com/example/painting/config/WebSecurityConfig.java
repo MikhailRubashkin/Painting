@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserService userService;
-
+    @Lazy
     @Autowired
     private PasswordEncoder passwordEncoder;
 
