@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/painting-0.0.1-SNAPSHOT.war
+web: java $JAVA_OPTS -jar target/painting-0.0.1-SNAPSHOT.war -Dserver.port=$PORT
