@@ -31,24 +31,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure ( HttpSecurity http ) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests ( )
-                .antMatchers ( "/login","/price", "/catalog/{id}/image", "/mainCatalog").permitAll ( )
-                .anyRequest ( ).authenticated ( )
-                .and ( )
-                .formLogin ( )
-                .loginPage ("/login")
-                .permitAll ( )
-                .and ( )
-                .logout ( )
-                .permitAll ( );
+                .authorizeRequests()
+                .antMatchers("/login", "/price", "/catalog/{id}/image", "/mainCatalog", "/body_polishing",
+                        "/body_repair", "/bumper_repair", "/headlight_polishing", "/painting_car",
+                        "/painting_discs", "/rust_removal").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
     }
 
     @Override
-    protected void configure ( AuthenticationManagerBuilder auth ) throws Exception{
-        auth.userDetailsService (userService)
-                .passwordEncoder (passwordEncoder);
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService)
+                .passwordEncoder(passwordEncoder);
     }
 }
 

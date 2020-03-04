@@ -83,6 +83,56 @@ public class CatalogController {
         view.setViewName("painting_car");
         return view;
     }
+    @GetMapping("/rust_removal")
+    public ModelAndView showCatalogViewRustRemoval(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("rust_removal");
+        return view;
+    }
+    @GetMapping("/body_polishing")
+    public ModelAndView showCatalogViewBodyPolishing(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("body_polishing");
+        return view;
+    }
+    @GetMapping("/headlight_polishing")
+    public ModelAndView showCatalogViewHeadlightPolishing(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("headlight_polishing");
+        return view;
+    }
+    @GetMapping("/bumper_repair")
+    public ModelAndView showCatalogViewBumperRepair(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("bumper_repair");
+        return view;
+    }
+    @GetMapping("/painting_discs")
+    public ModelAndView showCatalogViewPaintingDiscs(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("painting_discs");
+        return view;
+    }
 
     @GetMapping("/login")
     public ModelAndView showCatalogViewMain(Model model) {
