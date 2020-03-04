@@ -53,6 +53,16 @@ public class CatalogController {
         view.setViewName("mainCatalog");
         return view;
     }
+    @GetMapping("/price")
+    public ModelAndView showCatalogViewPrice(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("price");
+        return view;
+    }
 
     @GetMapping("/login")
     public ModelAndView showCatalogViewMain(Model model) {
