@@ -63,6 +63,26 @@ public class CatalogController {
         view.setViewName("price");
         return view;
     }
+    @GetMapping("/body_repair")
+    public ModelAndView showCatalogViewBodyRepair(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("body_repair");
+        return view;
+    }
+    @GetMapping("/painting_car")
+    public ModelAndView showCatalogViewPaintingCar(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("painting_car");
+        return view;
+    }
 
     @GetMapping("/login")
     public ModelAndView showCatalogViewMain(Model model) {
