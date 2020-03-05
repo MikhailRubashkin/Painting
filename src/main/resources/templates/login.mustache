@@ -21,9 +21,10 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1 style="color:#ff0000">Autoluxminsk</h1>
     <p>Кузовной ремонт и покраска автомобиля!</p>
-    <p>Наш адрес: г. Минск, ул.Щедрина 82. Контактный телефон: +375 29 865 56 60(viber/telegram).<a href="https://www.instagram.com/autoluxminsk/">
-        <img src="https://active-pro.in.ua/wp-content/uploads/2019/11/instagram.png" height="60" width="60" alt="">
-    </a>
+    <p>Наш адрес: г. Минск, ул.Щедрина 82. Контактный телефон: +375 29 865 56 60(telegram).<a href="https://www.instagram.com/autoluxminsk/">
+        <img src="https://active-pro.in.ua/wp-content/uploads/2019/11/instagram.png" height="60" width="60" alt=""></a>
+        <a class="visible-xs" href="viber://add?number=375298655660"><i class="fa fa-phone-square" aria-hidden="true"></i>
+            <img src="https://pngimg.com/uploads/viber/viber_PNG25.png" height="60" width="60" alt=""></a>
         Режим работы: 9:00-20:00.</p>
 
 </div>
@@ -66,12 +67,7 @@
             </li>
         </ul>
     </div>
-    <form action="/login" method="post" class="container">
-        <input class="form-control " type="text" placeholder="Enter User name" name="username" required/>
-        <input class="form-control " type="text" placeholder="Enter Password" name="password" required/>
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <button class="btn btn-outline-success d-block ml-auto" type="submit">Вход</button>
-    </form>
+
 </nav>
 
 
@@ -82,22 +78,12 @@
             <h5>Фото:</h5>
             <div><img src="/catalog/1/image" class="fakeimg" alt=""></div>
             <p>Результат работы: Результат до и после ⠀ 🔴Ответим на любые
-                вопросы / возможна оценка стоимости работ по фото: +375 29 865 56 60 (viber / telegram / 📞). </p>
+                вопросы / возможна оценка стоимости работ по фото: +375 29 865 56 60 (viber / telegram / 📞). В нашей работе
+                применяются материалы только ведущих производителей премиум класса, таких как: RM, Duxone, PPG, Quickline,
+                brulex; абразивы: Mirka, 3M, Kovax.
+                Это позволяет выполнять ремонты автомобилей, наших уважаемых клиентов,
+                с заводскими параметрами качества и давать соответствующие Гарантии на проводимые работы. </p>
 
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/login">Перейти на главную</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/price">Расценки на работу</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mainCatalog">Наши работы</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Не активно</a>
-                </li>
-            </ul>
             <hr class="d-sm-none"/>
         </div>
 
@@ -114,7 +100,8 @@
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
             </head>
             <body>
-            <div><img src="/catalog/2/image" class="pull-left"  height="600" width="750" alt=""></div>
+            <div><img src="/catalog/2/image" class="pull-left"  height="300" width="300" alt=""></div>
+            <div><img src="/catalog/3/image" class="pull-left"  height="300" width="300" alt=""></div>
             </body>
             </html>
         </div>
@@ -134,12 +121,8 @@
 
 
     </script>
-    <p>{{#today}} {{today}} {{/today}} <h5>Наш адрес: г. Минск, ул.Щедрина 82.
-    Контактный телефон: +375 29 865 56 60(viber/telegram).</h5> В нашей работе
-        применяются материалы только ведущих производителей премиум класса, таких как: RM, Duxone, PPG, Quickline,
-        brulex; абразивы: Mirka, 3M, Kovax.
-        Это позволяет выполнять ремонты автомобилей, наших уважаемых клиентов,
-        с заводскими параметрами качества и давать соответствующие Гарантии на проводимые работы. </p>
+    <p>{{#today}} {{today}} {{/today}} Наш адрес: г. Минск, ул.Щедрина 82.
+    Контактный телефон: +375 29 865 56 60(viber/telegram).</p>
 
 </div>
 </body>
