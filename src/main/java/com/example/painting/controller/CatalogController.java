@@ -133,6 +133,16 @@ public class CatalogController {
         view.setViewName("painting_discs");
         return view;
     }
+    @GetMapping("/contacts")
+    public ModelAndView showCatalogViewContacts(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        model.addAttribute ("user", user);
+        ModelAndView view = new ModelAndView();
+        List<Catalog> items =  catalogRepo.findAll ();
+        model.addAttribute("result", items);
+        view.setViewName("contacts");
+        return view;
+    }
 
     @GetMapping("/login")
     public ModelAndView showCatalogViewMain(Model model) {
