@@ -11,9 +11,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         .fakeimg {
-            height: 300px;
+            height: auto;
             width: auto;
             image-rendering: auto;
+        }
+        img {
+           display: inline-block;
+           height: auto;
+           max-width: 100%;
         }
     </style>
 </head>
@@ -28,7 +33,7 @@
         <a class="visible-xs" href="viber://add?number=375298655660"><i class="fa fa-phone-square" aria-hidden="true"></i>
             <img src="https://pngimg.com/uploads/viber/viber_PNG25.png" height="60" width="60" alt=""></a>
 
-        <a href="tg://resolve?domain=https://t.me/@Autoluxminsk"><i class="fa fa-telegram" aria-hidden="true"></i>
+        <a href="https://t.me/autoluxminsk">
             <img src="https://pngicon.ru/file/uploads/telegram.png" height="60" width="60" alt=""></a>
         Режим работы: 9:00-20:00.</p>
 </div>
@@ -90,29 +95,46 @@
             <h5>Фото:</h5>
             <div><img src="/catalog/1/image" class="fakeimg" alt=""></div>
             <p>Результат работы: Результат до и после ⠀ 🔴Ответим на любые
-                вопросы / возможна оценка стоимости работ по фото: +375 29 865 56 60 (viber / telegram / 📞). В нашей работе
-                применяются материалы только ведущих производителей премиум класса, таких как: RM, Duxone, PPG, Quickline,
+                вопросы / возможна оценка стоимости работ по фото: +375 29 865 56 60 (viber / telegram / 📞). В нашей
+                работе
+                применяются материалы только ведущих производителей премиум класса, таких как: RM, Duxone, PPG,
+                Quickline,
                 brulex; абразивы: Mirka, 3M, Kovax.
                 Это позволяет выполнять ремонты автомобилей, наших уважаемых клиентов,
                 с заводскими параметрами качества и давать соответствующие Гарантии на проводимые работы. </p>
             <hr class="d-sm-none"/>
         </div>
         <div class="col-sm-4">
-        <h2>Покраска автомобиля</h2>
-        <h5>Фото:</h5>
-        <div><img src="/catalog/2/image" class="fakeimg" alt=""></div>
+            <h2>Покраска автомобиля</h2>
+            <h5>Фото:</h5>
+            <div><img src="/catalog/2/image" class="fakeimg" alt=""></div>
             <p>Результат работы: Результат до и после ⠀ 🔴Ответим на любые
                 вопросы / возможна оценка стоимости работ по фото: +375 29 865 56 60 (viber / telegram / 📞). </p>
-            <div><img src="/catalog/3/image" class="fakeimg" alt=""></div>
-        <hr class="d-sm-none"/>
-    </div>
+            {{#resultRandom}}<div><img src="/catalog/{{resultRandom}}/image" class="fakeimg" alt=""></div>{{/resultRandom}}
+            <hr class="d-sm-none"/>
+        </div>
         <div class="col-sm-4">
             <h2>О кузовной коррозии</h2>
             <h5>Фото:</h5>
             <div><img src="/catalog/4/image" class="fakeimg" alt=""></div>
             <p>Результат работы: Результат до и после ⠀ 🔴Ответим на любые
                 вопросы / возможна оценка стоимости работ по фото: +375 29 865 56 60 (viber / telegram / 📞). </p>
-            <div><img src="/catalog/5/image" class="fakeimg" alt=""></div>
+
+            <script>
+            var imageList = [
+            "/catalog/1/image",
+            "/catalog/2/image",
+            "/catalog/3/image",
+            "/catalog/4/image",
+            "/catalog/5/image"
+              ]
+            var index = 0;
+            setInterval(function() {
+            document.querySelector("#test").src = imageList[index];
+            index++;
+            if(index===5){index = 0;}}, 5000)
+            </script>
+            <div><img id="test" src="{{#src}}{{src}}{{/src}}" class="fakeimg" alt=""></div>
             <hr class="d-sm-none"/>
         </div>
     </div>
@@ -130,9 +152,10 @@
         document.write(today);
 
 
+
     </script>
     <p>{{#today}} {{today}} {{/today}} Наш адрес: г. Минск, ул.Щедрина 82.
-    Контактный телефон: +375 29 865 56 60(viber/telegram). УНП 193351489
+        Контактный телефон: +375 29 865 56 60(viber/telegram). УНП 193351489
         р/с BY40UNBS30130352700000003933
         в ЗАО «БСБ БАНК»</p>
 </div>

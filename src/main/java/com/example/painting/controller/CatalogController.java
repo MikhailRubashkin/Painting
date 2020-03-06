@@ -147,6 +147,8 @@ public class CatalogController {
     @GetMapping("/login")
     public ModelAndView showCatalogViewMain(Model model) {
         String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        int resultRandom2 = catalogService.randomNumber();
+        model.addAttribute ("resultRandom", resultRandom2);
         model.addAttribute ("user", user);
         ModelAndView view = new ModelAndView();
         view.setViewName("login");
