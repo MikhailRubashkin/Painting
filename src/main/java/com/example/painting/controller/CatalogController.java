@@ -5,6 +5,7 @@ import com.example.painting.pojo.Catalog;
 import com.example.painting.repository.CatalogRepo;
 import com.example.painting.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -154,12 +155,9 @@ public class CatalogController {
         view.setViewName("login");
         return view;
     }
-    @GetMapping("/sitemap")
-    public ModelAndView showCatalogSitemap(Model model) {
-        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
-        int resultRandom2 = catalogService.randomNumber();
-        model.addAttribute ("resultRandom", resultRandom2);
-        model.addAttribute ("user", user);
+    @GetMapping("/sitemap.xml")
+    @ResponseStatus(HttpStatus.OK)
+    public ModelAndView showCatalogSitemap() {
         ModelAndView view = new ModelAndView();
         view.setViewName("sitemap");
         return view;
