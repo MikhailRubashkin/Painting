@@ -155,9 +155,13 @@ public class CatalogController {
         view.setViewName("login");
         return view;
     }
-    @GetMapping("/sitemap.xml")
+    @GetMapping("/sitemap")
     @ResponseStatus(HttpStatus.OK)
-    public ModelAndView showCatalogSitemap() {
+    public ModelAndView showCatalogSitemap(Model model) {
+        String user = SecurityContextHolder.getContext ( ).getAuthentication ( ).getName ( );
+        int resultRandom2 = catalogService.randomNumber();
+        model.addAttribute ("resultRandom", resultRandom2);
+        model.addAttribute ("user", user);
         ModelAndView view = new ModelAndView();
         view.setViewName("sitemap");
         return view;
